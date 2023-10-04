@@ -1,11 +1,14 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Roboto } from 'next/font/google'
 import {ClerkProvider} from '@clerk/nextjs'
 import { ThemeProvider } from '@/components/providers/theme-provider'
 import { cn } from '@/lib/utils'
 
-const inter = Inter({ subsets: ['latin'] })
+const roboto = Roboto({
+  weight: '400',
+  subsets: ['latin'],
+})
 
 export const metadata: Metadata = {
   title: 'Discord Clone',
@@ -20,7 +23,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
-        <body className={cn(inter.className, "bg-white dark:bg-[#313338]")}>
+        <body className={cn(roboto.className, "bg-white dark:bg-[#313338]")}>
           <ThemeProvider 
             attribute='class'
             defaultTheme='dark'
